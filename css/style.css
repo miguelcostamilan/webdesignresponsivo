@@ -1,0 +1,311 @@
+/*          
+Olá
+Este é o CSS do Site de Webdesign
+Qualquer dúvida consulte :::http://www.w3.org/community/webed/wiki/CSS/Properties:::
+*/
+
+ 
+
+/* Normatização CSS */
+/* 1EM = 16px --> gambiarra 1EM = 10px */
+
+body{
+	
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	color: #444;
+	font-size: 62.5%; /* gambiarra */
+}
+
+*,*:before,*:after{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;   
+}
+
+/* serve para arrumar o tamanho dos boxes -
+problemas de soma com margin e padding
+Outro truque bacana de CSS para design responsivo é
+o box-sizing border box acompanhado do seletor *.
+Basicamente esta regra diz que todos os elementos agora
+levarão em conta apenas a largura e altura determinada,
+sem somar a este valor a borda e o padding. */
+
+/*
+Todo 'a' vem por default sublinhado, para mudar isso deve-se usar as seguintes propriedades:
+text-decoration: none ==> retira o sublinhado;
+text-decoration: underline ==> coloca um sublinhado;
+text-decoration: overline ==> coloca um sobrelinhado;
+text-decoration: underline overline ==> coloca sobre e sublinhado juntos;
+text-decoration: line-through ==> coloca uma linha em cima do texto.
+*/
+
+a{
+	text-decoration: none;
+	font-size: 1.6em; /* 16px */
+	color: #00ccff;
+} 
+
+a:hover{
+	text-decoration: underline;
+}
+
+
+/*
+Como estilizar o comportamento do mouse
+a:link estiliza o estado UP (corresponde a situação inicial do link, isto é, o aspecto do link quando a página é carregada no browser do usuário);
+a:visited estiliza o estado VISITED (é o aspecto que o link assume quando o usuário passa o ponteiro do mouse sobre o link);
+a:hover estiliza o estado OVER (é o aspecto do link depois que foi visitado pelo usuário);
+a:active estiliza o estado link ativo (é o aspecto do link ativo, isto é, aquele que foi clicado pelo usuário.);
+*/
+
+ 
+/* Estilos principais do site */
+ 
+div.container{
+	max-width: 1128px;
+	margin: 0 auto;
+}
+
+img,
+figure,
+video,
+embed{
+	max-width: 100%;
+}
+
+header{
+	width: 100%;
+	height: 48px;
+	margin-top: 3.6em; /* 36px */
+	margin-bottom: 3.6em; /* 36px */
+}
+.logo{
+	width: 20.74%; /* 234px objeto - 1128px contexto --> 234/1128=0,207468.100=20,74% */
+	float: left;
+}
+
+nav{
+	float: right;
+	width: 74.47%; /* 840px objeto - 1128px contexto --> 840/1128=0,744680.100=74.47% */
+	}
+nav ul{
+	float: right;
+}
+
+nav li{
+	font-size: 1.2em; /* 12px */
+	margin-left: 2.0em; /* 20px */
+	margin-top: 1.0em; /* 10px */
+	display: inline-block;
+}
+
+nav li a{
+	color:#999;
+}
+
+div.banner{
+	background: url('../img/banner.jpg');
+	height: 450px;
+	margin-bottom: 4.8em; /* 48px */
+	position: relative;
+	}
+
+div.caixa{
+	position: absolute;
+	top: 48px; 
+	background: rgba(0,0,0,0.6); /* RGBA (Red-Green-Blue-Alpha) alpha 1 é opaco e 0 é transparente*/
+	width: 42.55%; /* 480px objeto - 1128px contexto  --> 480/1128= 0,4255.100=42,55% */
+	padding: 2.4em 1.4em 2.4em 4.0em; /* top right bottom left */ /* 24px 14px 24px 40px */
+}
+
+h1{
+	font-size: 4.0em; /* 4opx */
+	color: #fff;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+div.caixa p{
+	font-size: 1.8em; /* 18px */
+	color: #fff;
+}
+
+/* 
+O Position não serve para diagramar a estrutura de layouts. Para isso, você utiliza a propriedade float do css. O Position vai servir para fazer coisas mais simples.
+#fixed irá fixar a posição do elemento na coordenada que você definir
+#relative posiciona o elemento em relação a si mesmo.
+#absolute se utiliza do ponto superior esquerdo de outros elementos. Estes elementos são os parentes dele do elemento com position absolute. Mais especificamente o pai.
+
+
+
+/* Aqui é a section */
+
+div.coluna{
+	width: 23.40%; /* 264px objeto - 1128px contexto =23,40% */
+	margin-right: 2.13%; /* 24px objeto - 1128px contexto =2,1276 */
+	float: left;
+}
+
+div.coluna:last-child{
+	margin-right: 0;
+}
+
+h2{
+	font-size: 2.4em; /* 24px */
+}
+
+p{
+	font-size: 1.6em; /* 16px */
+	text-align: justify;
+}
+
+footer{
+	width: 100%;
+	float: left;
+	margin-top: 2.4em; /* 24px */
+	margin-bottom: 2.4em; /* 24px */
+}
+
+p.footer{
+	font-size: 1.0em; /* 10px */
+	margin-bottom: 0;
+}
+
+
+
+/* Medias Queries */
+
+
+@media screen and (max-width: 1128px){
+	
+	div.container{
+		padding: 0 2.4em 0 2.4em; /* top right bottom left */
+	}
+}
+
+
+@media screen and (max-width: 768px){
+	
+	div.caixa{
+		width: 65%;
+	}
+	
+	div.coluna{
+		width: 48%;
+		margin-bottom: 2.4em;
+		margin-right: 2%;
+	}
+	
+	div.coluna:nth-child(even){
+		margin-right: 0;
+	}
+	
+	div.logo{
+		margin-top: 1.2em;
+		width: 25%;
+	}
+}
+
+
+@media screen and (max-width: 718px){
+	
+	div.banner{
+		position: relative;
+		float: left;
+		margin: 0;
+		height: 150px;
+	}
+	
+	div.caixa{
+		position: relative;
+		display: block;
+		float: left;
+		width: 100%;
+		background: #000;
+		margin-top: 100px;
+	}
+	
+	h1{
+		font-size: 2.5em;
+	}
+	
+	section{
+		margin-top: 450px;
+	}
+}
+
+
+@media screen and (max-width: 640px){
+	
+	nav{
+		width: 100%;
+	}
+	
+	nav ul{
+		float: left;
+		font-size: 0.8em;
+	}
+	
+	nav li:first-child{
+		margin-left: 0;
+	}
+}
+
+
+@media screen and (max-width: 520px){
+	
+	div.coluna{
+		width: 100%;
+		margin-right: 0;
+	}
+	
+	div.caixa{
+		padding: 1.2em 2em 1.2em 2em;
+		position: relative;
+		display: block;
+		float: left;
+		width: 100%;
+		background: #000;
+		margin-top: 80px;
+	}
+	
+	div.banner{
+		height: 120px;
+	}
+	
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; 
+    display: table; 
+}
+
+ 
+
+.clearfix:after {
+    clear: both;
+}
+
+ 
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
